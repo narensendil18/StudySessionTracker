@@ -1,0 +1,241 @@
+STUDY SESSION TRACKER - MANUAL TEST CASES
+==========================================
+
+Tester: Naren Sendil Kumar
+
+TEST 1: First Run - Empty File
+-------------------------------
+Steps:
+1. Delete data/study_sessions.csv if it exists
+2. Run python code/study_tracker.py
+3. Select option 2 (View All Sessions)
+
+Expected Result:
+- Program creates data/ directory
+- Creates study_sessions.csv with headers
+- Displays "No sessions logged yet"
+
+Actual Result: PASS
+- Directory and file created successfully
+- Appropriate message displayed
+
+TEST 2: Add Valid Study Session
+--------------------------------
+Steps:
+1. Run program
+2. Select option 1
+3. Enter date: 2024-12-01
+4. Enter course: CS 1064
+5. Enter minutes: 60
+6. Enter notes: Python loops
+
+Expected Result:
+- Session added successfully
+- Confirmation message displayed
+- Data saved to CSV
+
+Actual Result: PASS
+- Session added and saved correctly
+
+TEST 3: Add Session with Today's Date
+--------------------------------------
+Steps:
+1. Select option 1
+2. Press Enter for date (use today)
+3. Enter course: MATH 1226
+4. Enter minutes: 90
+5. Skip notes (press Enter)
+
+Expected Result:
+- Current date used automatically
+- Session added with empty notes
+
+Actual Result: PASS
+- Today's date correctly captured
+
+TEST 4: Invalid Date Format
+----------------------------
+Steps:
+1. Select option 1
+2. Enter date: 12/01/2024 (wrong format)
+
+Expected Result:
+- Error message displayed
+- Returns to main menu
+- No data saved
+
+Actual Result: PASS
+- Appropriate error message shown
+
+TEST 5: Invalid Minutes Input
+------------------------------
+Steps:
+1. Select option 1
+2. Enter valid date
+3. Enter course: ENGL 1106
+4. Enter minutes: abc (non-numeric)
+
+Expected Result:
+- Error message for invalid input
+- Returns to main menu
+
+Actual Result: PASS
+- Error handled correctly
+
+TEST 6: Negative Minutes
+-------------------------
+Steps:
+1. Select option 1
+2. Enter valid date and course
+3. Enter minutes: -30
+
+Expected Result:
+- Error message about positive numbers
+- Returns to main menu
+
+Actual Result: PASS
+- Validation working correctly
+
+TEST 7: Empty Course Name
+--------------------------
+Steps:
+1. Select option 1
+2. Enter valid date
+3. Press Enter without entering course name
+
+Expected Result:
+- Error message
+- Returns to main menu
+
+Actual Result: PASS
+- Empty course rejected appropriately
+
+TEST 8: View All Sessions
+--------------------------
+Steps:
+1. Add 3-4 sessions with different courses
+2. Select option 2
+
+Expected Result:
+- All sessions displayed
+- Shows date, course, minutes, notes
+- Numbered list format
+
+Actual Result: PASS
+- All sessions displayed correctly
+- Format clear and readable
+
+TEST 9: Statistics Calculation
+-------------------------------
+Steps:
+1. Add sessions: CS 1064 (60 min), MATH 1226 (90 min), CS 1064 (45 min)
+2. Select option 3
+
+Expected Result:
+- Total: 195 minutes (3h 15m)
+- CS 1064: 105 minutes (1h 45m)
+- MATH 1226: 90 minutes (1h 30m)
+
+Actual Result: PASS
+- Calculations correct
+- Per-course aggregation working
+- Hours/minutes conversion accurate
+
+TEST 10: Data Persistence
+--------------------------
+Steps:
+1. Add 2 sessions
+2. Exit program (option 4)
+3. Restart program
+4. View all sessions (option 2)
+
+Expected Result:
+- Previously added sessions still visible
+- Data loaded from CSV correctly
+
+Actual Result: PASS
+- All data persisted correctly
+- File reading working properly
+
+TEST 11: Multiple Sessions Same Course
+---------------------------------------
+Steps:
+1. Add 5 sessions all for CS 1064
+2. View statistics
+
+Expected Result:
+- All sessions counted
+- Total time correctly summed for CS 1064
+
+Actual Result: PASS
+- Aggregation working for multiple sessions
+
+TEST 12: Invalid Menu Choice
+-----------------------------
+Steps:
+1. At main menu, enter: 5
+2. At main menu, enter: abc
+3. At main menu, enter: 0
+
+Expected Result:
+- Error message for each invalid choice
+- Returns to menu prompt
+
+Actual Result: PASS
+- All invalid inputs handled gracefully
+
+TEST 13: Exit Program
+---------------------
+Steps:
+1. Select option 4
+
+Expected Result:
+- Thank you message displayed
+- Program exits cleanly
+
+Actual Result: PASS
+- Clean exit with appropriate message
+
+TEST 14: Long Course Names
+---------------------------
+Steps:
+1. Add session with course: "ENGE 1215 Introduction to Engineering"
+2. View all sessions
+
+Expected Result:
+- Long course name stored and displayed correctly
+
+Actual Result: PASS
+- No truncation or formatting issues
+
+TEST 15: Special Characters in Notes
+-------------------------------------
+Steps:
+1. Add session with notes containing: "Chapter 3, sections 3.1-3.5 & practice problems"
+
+Expected Result:
+- Special characters stored correctly
+- CSV parsing handles commas properly
+
+Actual Result: PASS
+- CSV DictWriter handles special characters correctly
+
+SUMMARY
+-------
+Total Tests: 15
+Passed: 15
+Failed: 0
+Pass Rate: 100%
+
+EDGE CASES IDENTIFIED:
+- Empty file on first run ✓
+- Invalid date formats ✓
+- Non-numeric input for minutes ✓
+- Negative/zero values ✓
+- Empty required fields ✓
+- Data persistence across sessions ✓
+- Multiple sessions per course ✓
+- Special characters in text fields ✓
+
+All core functionality working as expected.
+Ready for final submission.

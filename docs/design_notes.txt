@@ -1,0 +1,113 @@
+STUDY SESSION TRACKER - DESIGN NOTES
+=====================================
+
+Initial Planning - December 2024
+
+PROJECT GOAL:
+Build a command-line tool for students to log and analyze study sessions
+across multiple courses.
+
+DATA STRUCTURE DECISIONS:
+-------------------------
+
+Option 1: Plain text file (one line per session)
+Pro: Simple to implement
+Con: Hard to parse, no structure
+
+Option 2: JSON file
+Pro: Easy to work with in Python, nested data
+Con: Overkill for simple tabular data
+
+Option 3: CSV file CHOSEN
+Pro: Simple, standard format, easy to parse with csv module
+Con: Limited to tabular data (fine for our needs)
+
+CSV COLUMNS:
+- date (YYYY-MM-DD format)
+- course (string, e.g., "CS 1064")
+- minutes (integer)
+- notes (optional text)
+
+PROGRAM STRUCTURE:
+------------------
+
+main.py (renamed to study_tracker.py):
+- Main menu loop
+- User input handling
+- Call functions from helpers
+
+functions.py:
+- add_session() - prompt for session details
+- view_all_sessions() - display all records
+- display_stats() - calculate and show statistics
+- load_data() - read from CSV
+- save_data() - write to CSV
+
+MENU OPTIONS:
+1. Add Study Session
+2. View All Sessions
+3. View Statistics
+4. Exit
+
+STATISTICS TO CALCULATE:
+- Total study time (all courses)
+- Per-course breakdown
+- Convert minutes to hours/minutes format
+
+VALIDATION NEEDED:
+- Date format (YYYY-MM-DD)
+- Minutes must be positive integer
+- Course name cannot be empty
+- Handle empty file on first run
+
+ERROR HANDLING:
+- Invalid menu choices
+- File I/O errors
+- Invalid user input
+- Empty data cases
+
+FUTURE ENHANCEMENTS (if time permits):
+- Filter by course
+- Show last N sessions
+- Consecutive study day tracking
+- Weekly/monthly summaries
+
+FILE ORGANIZATION:
+------------------
+code/        - Python source files
+data/        - CSV data files
+tests/       - Test scripts
+docs/        - Documentation, screenshots
+report/      - Final report
+
+GIT WORKFLOW:
+- Commit after each feature
+- Use descriptive commit messages
+- Example commits:
+  * "Initial project structure"
+  * "Add menu system"
+  * "Implement add_session function"
+  * "Add data persistence"
+  * "Implement statistics display"
+  * "Add input validation"
+  * "Fix bug with empty file"
+
+TESTING APPROACH:
+- Test with multiple courses
+- Test edge cases (empty file, invalid input)
+- Test data persistence (exit and restart)
+- Test statistics calculations manually
+
+TIMELINE NOTES:
+- Hour 1-2: Research, setup repo
+- Hour 3-4: Design, create files
+- Hour 5-6: Core functionality (add, save, load)
+- Hour 7-8: Statistics and testing
+- Hour 9-10: Polish, documentation
+
+LESSONS LEARNED DURING DEVELOPMENT:
+- Planning data structure first was crucial
+- Input validation prevents many issues
+- Context managers (with statement) handle file closing
+- DictReader/DictWriter make CSV handling easy
+- Separating concerns into functions makes testing easier
