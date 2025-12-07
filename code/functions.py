@@ -27,12 +27,11 @@ def display_menu():
 
 def add_session():
     """
-    Prompt user for session details and return a session dictionary.
-    Returns None if user cancels or input is invalid.
+    Asks user for session details and return a session dictionary.
     """
     print("\n--- Add New Study Session ---")
 
-    # Get date
+    # Gets date
     date_input = input("Enter date (YYYY-MM-DD) or press Enter for today: ").strip()
     if not date_input:
         date_input = datetime.now().strftime("%Y-%m-%d")

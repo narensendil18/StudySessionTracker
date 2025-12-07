@@ -49,11 +49,11 @@ def main():
         elif choice == "4":
             # Exit the program
             print("\nThank you for using Study Session Tracker!")
-            print("Keep up the good work! 📚\n")
+            print("Keep up the good work!\n")
             sys.exit(0)
 
         else:
-            print("\n✗ Invalid choice. Please enter 1, 2, 3, or 4.\n")
+            print("\n Invalid choice. Please enter 1, 2, 3, or 4.\n")
 
 
 if __name__ == "__main__":

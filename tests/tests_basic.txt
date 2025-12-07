@@ -220,22 +220,3 @@ Expected Result:
 Actual Result: PASS
 - CSV DictWriter handles special characters correctly
 
-SUMMARY
--------
-Total Tests: 15
-Passed: 15
-Failed: 0
-Pass Rate: 100%
-
-EDGE CASES IDENTIFIED:
-- Empty file on first run ✓
-- Invalid date formats ✓
-- Non-numeric input for minutes ✓
-- Negative/zero values ✓
-- Empty required fields ✓
-- Data persistence across sessions ✓
-- Multiple sessions per course ✓
-- Special characters in text fields ✓
-
-All core functionality working as expected.
-Ready for final submission.

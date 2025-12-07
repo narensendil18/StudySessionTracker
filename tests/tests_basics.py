@@ -22,15 +22,15 @@ def test_save_and_load():
     
     # Save test data
     save_data(test_sessions)
-    print("✓ Data saved")
+    print("Data saved")
     
     # Load data back
     loaded_sessions = load_data()
-    print("✓ Data loaded")
+    print("Data loaded")
     
     # Verify
     if len(loaded_sessions) == len(test_sessions):
-        print(f"✓ Correct number of sessions: {len(loaded_sessions)}")
+        print(f"Correct number of sessions: {len(loaded_sessions)}")
     else:
         print(f"✗ Error: Expected {len(test_sessions)}, got {len(loaded_sessions)}")
     

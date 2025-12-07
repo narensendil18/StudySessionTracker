@@ -14,13 +14,9 @@ Option 1: Plain text file (one line per session)
 Pro: Simple to implement
 Con: Hard to parse, no structure
 
-Option 2: JSON file
-Pro: Easy to work with in Python, nested data
-Con: Overkill for simple tabular data
-
-Option 3: CSV file CHOSEN
+Option 2: CSV file (CHOSEN)
 Pro: Simple, standard format, easy to parse with csv module
-Con: Limited to tabular data (fine for our needs)
+Con: Limited to tabular data
 
 CSV COLUMNS:
 - date (YYYY-MM-DD format)
@@ -31,7 +27,7 @@ CSV COLUMNS:
 PROGRAM STRUCTURE:
 ------------------
 
-main.py (renamed to study_tracker.py):
+study_tracker.py:
 - Main menu loop
 - User input handling
 - Call functions from helpers
@@ -60,17 +56,10 @@ VALIDATION NEEDED:
 - Course name cannot be empty
 - Handle empty file on first run
 
-ERROR HANDLING:
-- Invalid menu choices
-- File I/O errors
-- Invalid user input
-- Empty data cases
-
 FUTURE ENHANCEMENTS (if time permits):
 - Filter by course
 - Show last N sessions
 - Consecutive study day tracking
-- Weekly/monthly summaries
 
 FILE ORGANIZATION:
 ------------------
@@ -79,18 +68,6 @@ data/        - CSV data files
 tests/       - Test scripts
 docs/        - Documentation, screenshots
 report/      - Final report
-
-GIT WORKFLOW:
-- Commit after each feature
-- Use descriptive commit messages
-- Example commits:
-  * "Initial project structure"
-  * "Add menu system"
-  * "Implement add_session function"
-  * "Add data persistence"
-  * "Implement statistics display"
-  * "Add input validation"
-  * "Fix bug with empty file"
 
 TESTING APPROACH:
 - Test with multiple courses
@@ -108,6 +85,4 @@ TIMELINE NOTES:
 LESSONS LEARNED DURING DEVELOPMENT:
 - Planning data structure first was crucial
 - Input validation prevents many issues
-- Context managers (with statement) handle file closing
-- DictReader/DictWriter make CSV handling easy
-- Separating concerns into functions makes testing easier
+- Context managers, handle file closing
